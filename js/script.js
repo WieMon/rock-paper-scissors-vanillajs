@@ -30,9 +30,13 @@ const playGame = function(playerInput){
   const displayResult = function(computerMove, playerMove){
     if(computerMove == playerMove){
       printMessage('Tie!');
-    } else if(computerMove == 'rock' && playerMove == 'paper' || computerMove == 'paper' && playerMove == 'scissors' || computerMove == 'scissors' && playerMove == 'rock'){
+    } else if(computerMove == 'rock' && playerMove == 'paper' ||
+              computerMove == 'paper' && playerMove == 'scissors' ||
+              computerMove == 'scissors' && playerMove == 'rock'){
       printMessage('You won!');
-    } else if(computerMove =='rock' && playerMove == 'scissors' || computerMove == 'paper' && playerMove == 'rock' || computerMove == 'scissors' && playerMove == 'paper'){
+    } else if(computerMove == 'rock' && playerMove == 'scissors' ||
+              computerMove == 'paper' && playerMove == 'rock' ||
+              computerMove == 'scissors' && playerMove == 'paper'){
       printMessage('You lost!');
     } else{
       printMessage('Choose your move!');
