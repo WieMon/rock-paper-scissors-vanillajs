@@ -1,9 +1,11 @@
-function printMessage(msg){  // eslint-disable-line no-unused-vars
+/* eslint-disable no-unused-vars */
+
+function printMessage(msg){
   let div = document.createElement('div');
   div.innerHTML = msg;
   document.getElementById('messages').appendChild(div);
 }
 
-function clearMessages(){  // eslint-disable-line no-unused-vars
+function clearMessages(){
   document.getElementById('messages').innerHTML = '';
 }
