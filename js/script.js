@@ -3,6 +3,11 @@
 
 let playerResult = 0;
 let computerResult = 0;
+const playerResult_span = document.getElementById('player-result');
+const computerResult_span = document.getElementById('computer-result');
+const rock_button = document.getElementById('play-rock');
+const paper_button = document.getElementById('play-paper');
+const scissors_button = document.getElementById('play-scissors');
 
 const playGame = function(playerInput){
 
@@ -22,8 +27,6 @@ const playGame = function(playerInput){
 
   const randomNumber = Math.floor(Math.random() * 3 + 1);
 
-  console.log('The chosen number is: ' + randomNumber);
-  
   const computerMove = getMoveName(randomNumber);
 
   const playerMove = getMoveName(playerInput);
@@ -36,39 +39,45 @@ const playGame = function(playerInput){
     } else if(computerMove == 'rock' && playerMove == 'paper' ||
               computerMove == 'paper' && playerMove == 'scissors' ||
               computerMove == 'scissors' && playerMove == 'rock'){
-      printMessage('You won!');
       win();
+        
     } else if(computerMove == 'rock' && playerMove == 'scissors' ||
               computerMove == 'paper' && playerMove == 'rock' ||
               computerMove == 'scissors' && playerMove == 'paper'){
-      printMessage('You lost!');
       lose();
     } else{
       printMessage('Choose your move!');
     }
   }; 
-
+ 
   displayResult(computerMove, playerMove);
 };
 
-document.getElementById('play-rock').addEventListener('click', function() {
-  playGame(1);
-});
+function main(){
+  rock_button.addEventListener('click', function() {
+    playGame(1);
+  });
 
-document.getElementById('play-paper').addEventListener('click', function() {
-  playGame(2);
-});
+  paper_button.addEventListener('click', function() {
+    playGame(2);
+  });
 
-document.getElementById('play-scissors').addEventListener('click', function() {
-  playGame(3);
-});
+  scissors_button.addEventListener('click', function() {
+    playGame(3);
+  });
+}
+
+main();
 
 function win(){
   playerResult++;
-  document.getElementById('player-result').innerHTML = playerResult;
+  playerResult_span.innerHTML = playerResult;
+  printMessage('You won!');
 }
 
 function lose(){
   computerResult++;
-  document.getElementById('computer-result').innerHTML = computerResult;
+  computerResult_span.innerHTML = computerResult;
+  printMessage('You lost!');
 }
+
