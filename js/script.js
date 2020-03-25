@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
+let playerResult = 0;
+let computerResult = 0;
+
 const playGame = function(playerInput){
 
   clearMessages ();
@@ -34,10 +37,12 @@ const playGame = function(playerInput){
               computerMove == 'paper' && playerMove == 'scissors' ||
               computerMove == 'scissors' && playerMove == 'rock'){
       printMessage('You won!');
+      win();
     } else if(computerMove == 'rock' && playerMove == 'scissors' ||
               computerMove == 'paper' && playerMove == 'rock' ||
               computerMove == 'scissors' && playerMove == 'paper'){
       printMessage('You lost!');
+      lose();
     } else{
       printMessage('Choose your move!');
     }
@@ -57,3 +62,13 @@ document.getElementById('play-paper').addEventListener('click', function() {
 document.getElementById('play-scissors').addEventListener('click', function() {
   playGame(3);
 });
+
+function win(){
+  playerResult++;
+  document.getElementById('player-result').innerHTML = playerResult;
+}
+
+function lose(){
+  computerResult++;
+  document.getElementById('computer-result').innerHTML = computerResult;
+}
