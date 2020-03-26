@@ -86,14 +86,30 @@ function lose(){
   printMessage('You lost!');
 }
 
+function resetWin(){
+  playerResult = 0;
+  playerResult_span.innerHTML = 0;
+}
+
+function resetLose(){
+  computerResult = 0;
+  computerResult_span.innerHTML = 0;
+}
+
 function roundNumber(){
   
-  if (round != 3){
+  if (round < 3){
     round++;
     roundNumber_div.innerHTML = round;
-  } else{
+  } else if (round == 3){
     printMessage('Game over! Click on START');
     round = 0;
+    resetWin();
+    resetLose();
+  } else {
+    computerResult++;
+    playerResult++;
+    round++;
     roundNumber_div.innerHTML = round;
   } 
 }
