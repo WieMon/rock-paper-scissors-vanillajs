@@ -8,10 +8,12 @@ const computerResult_span = document.getElementById('computer-result');
 const rock_button = document.getElementById('play-rock');
 const paper_button = document.getElementById('play-paper');
 const scissors_button = document.getElementById('play-scissors');
+const roundNumber_div = document.getElementById('round-number');
+let round = 0;
 
 const playGame = function(playerInput){
 
-  clearMessages ();
+  clearMessages();
 
   const getMoveName = function(moveId){
     if(moveId == 1){
@@ -36,21 +38,24 @@ const playGame = function(playerInput){
   const displayResult = function(computerMove, playerMove){
     if(computerMove == playerMove){
       printMessage('Tie!');
+      roundNumber();
     } else if(computerMove == 'rock' && playerMove == 'paper' ||
               computerMove == 'paper' && playerMove == 'scissors' ||
               computerMove == 'scissors' && playerMove == 'rock'){
       win();
-        
+      roundNumber();
     } else if(computerMove == 'rock' && playerMove == 'scissors' ||
               computerMove == 'paper' && playerMove == 'rock' ||
               computerMove == 'scissors' && playerMove == 'paper'){
       lose();
+      roundNumber();
     } else{
       printMessage('Choose your move!');
     }
   }; 
  
   displayResult(computerMove, playerMove);
+
 };
 
 function main(){
@@ -81,3 +86,14 @@ function lose(){
   printMessage('You lost!');
 }
 
+function roundNumber(){
+  
+  if (round != 3){
+    round++;
+    roundNumber_div.innerHTML = round;
+  } else{
+    printMessage('Game over! Click on START');
+    round = 0;
+    roundNumber_div.innerHTML = round;
+  } 
+}
