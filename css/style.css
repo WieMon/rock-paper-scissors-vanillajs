@@ -1,1 +1,66 @@
+@import url("https://fonts.googleapis.com/css?family=Asap:400,700&display=swap&subset=latin-ext");
 
+/*Variables*/
+
+/*Global*/
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; 
+}
+
+body {
+  background-color: #f5f6fa;
+  font-family: 'Asap', sans-serif;
+}
+
+/*Header*/
+header {
+  padding: 20px;
+  background-color: #dcdde1;
+  text-align: center;
+}
+
+/*Container*/
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+/*Buttons*/
+.buttons {
+  padding: 40px 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px 20px;
+  border-radius: 4px;
+  font-size: 36px;
+}  
+
+/*Message*/
+.message {
+  padding: 20px;
+}
+
+/*Results*/
+.results {
+  padding: 40px 20px;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+td, th {
+  width: 150px;
+  height: 30px;
+  border: 1.5px solid #273c75;
+}
+
+/*Reset*/
+.reset {
+  padding: 20px;
+}
