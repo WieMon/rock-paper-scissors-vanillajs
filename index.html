@@ -6,6 +6,9 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<header>
+		<h1>Play 3 rounds between YOU and COMPUTER</h1>
+	</header>
 	<div class="container">
 		<div id="buttons">
 			<button id="play-rock">rock</button>
@@ -14,12 +17,49 @@
 		</div>
 		<div id="messages"></div>
 		<div id="result">
-			<div id="player-label">player</div>
-			<div id="computer-label">computer</div>
-			<span id="player-result">0</span>
-			<span id="computer-result">0</span>
-			<div id="round-number">0</div>
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th class="player-label">YOU</th>
+						<th class="computer-label">COMPUTER</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="round-label">Round 1</td>
+						<td id="r1p">0</td>
+						<td id="r1c">0</td>
+					</tr>
+					<tr>
+						<td class="round-label">Round 2</td>
+						<td id="r2p">0</td>
+						<td id="r2c">0</td>
+					</tr>
+					<tr>
+						<td class="round-label">Round 3</td>
+						<td id="r3p">0</td>
+						<td id="r3c">0</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td id="score-label">Score</td>
+						<td id="score-player">0</td>
+						<td id="score-computer">0</td>
+					</tr>
+				</tfoot>
+			</table>
+			<div id="reset">
+				<button id="reset-round">start again</button>
+			
+			</div>
+				<span id="player-result">0</span>
+				<span id="computer-result">0</span>
+				<span id="round-label" class="badge">Round</span>
+				<div id="round-number">0</div>
 		</div>
+		
 	</div>
 	<script src="js/functions.js"></script>
 	<script src="js/script.js"></script>
