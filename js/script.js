@@ -100,12 +100,11 @@ function win(){
     playerPoint++;
     ++score.player;
     playerRound_3_td.innerHTML = playerPoint;
-    
     score_td.innerHTML = score.player + ':' + score.computer;
-  } else if(round == 3){
-    //printMessage('Game over! Click on START');
-    //resetWin();
-    //resetLose();
+  } else if(round >= 3){
+    clearMessages();
+    printMessage('Game over! Click on START');
+    
   }
 }
 
@@ -115,7 +114,7 @@ function lose(){
 
   if(round == 0){
     computerPoint++;
-    
+    ++score.computer;
     computerRound_1_td.innerHTML = computerPoint;
   } else if(round == 1){
     computerPoint++;
@@ -126,7 +125,9 @@ function lose(){
     ++score.computer;
     computerRound_3_td.innerHTML = computerPoint;
     score_td.innerHTML = score.player + ':' + score.computer;
-  } else if(round == 3){
+  } else if(round >= 3){
+    clearMessages();
+    printMessage('Game over! Click on START');
     
     
   }
@@ -148,10 +149,10 @@ function roundNumber(){
     round++;
     //roundNumber_div.innerHTML = round;
   } else if (round == 3){
-    printMessage('Game over! Click on START');
-    round = 0;
-    resetWin();
-    resetLose();
+    //printMessage('Game over! Click on START');
+    //round = 0;
+    //resetWin();
+    //resetLose();
   } else {
     computerResult++;
     playerResult++;
