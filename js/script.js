@@ -8,8 +8,7 @@ const playerRound_2_td = document.getElementById('r2p');
 const computerRound_2_td = document.getElementById('r2c');
 const playerRound_3_td = document.getElementById('r3p');
 const computerRound_3_td = document.getElementById('r3c');
-const playerScore_td = document.getElementById('score-player');
-const computerScore_td = document.getElementById('score-computer');
+const score_td = document.getElementById('score');
 const rock_button = document.getElementById('play-rock');
 const paper_button = document.getElementById('play-paper');
 const scissors_button = document.getElementById('play-scissors');
@@ -48,11 +47,13 @@ const playGame = function(playerInput){
               computerMove == 'paper' && playerMove == 'scissors' ||
               computerMove == 'scissors' && playerMove == 'rock'){
       win();
+      
       roundNumber();
     } else if(computerMove == 'rock' && playerMove == 'scissors' ||
               computerMove == 'paper' && playerMove == 'rock' ||
               computerMove == 'scissors' && playerMove == 'paper'){
       lose();
+      
       roundNumber();
     } else{
       printMessage('Choose your move!');
@@ -79,20 +80,28 @@ function main(){
 
 main();
 
+let score = {
+  player: 0,
+  computer: 0,
+};
+
 function win(){
   let playerPoint = 0;
-
+  
   if(round == 0){
     playerPoint++;
+    ++score.player;
     playerRound_1_td.innerHTML = playerPoint;
   } else if(round == 1){
     playerPoint++;
+    ++score.player;
     playerRound_2_td.innerHTML = playerPoint;
   } else if(round == 2){
     playerPoint++;
+    ++score.player;
     playerRound_3_td.innerHTML = playerPoint;
-     
-    playerScore_td.innerHTML = 'test';
+    
+    score_td.innerHTML = score.player + ':' + score.computer;
   } else if(round == 3){
     //printMessage('Game over! Click on START');
     //resetWin();
@@ -102,17 +111,21 @@ function win(){
 
 function lose(){
   let computerPoint = 0;
-  
+  let sum = 0;
+
   if(round == 0){
     computerPoint++;
+    
     computerRound_1_td.innerHTML = computerPoint;
   } else if(round == 1){
     computerPoint++;
+    ++score.computer;
     computerRound_2_td.innerHTML = computerPoint;
   } else if(round == 2){
     computerPoint++;
+    ++score.computer;
     computerRound_3_td.innerHTML = computerPoint;
-    computerScore_td.innerHTML = 'test';
+    score_td.innerHTML = score.player + ':' + score.computer;
   } else if(round == 3){
     
     
@@ -133,7 +146,7 @@ function roundNumber(){
   
   if (round < 3){
     round++;
-    roundNumber_div.innerHTML = round;
+    //roundNumber_div.innerHTML = round;
   } else if (round == 3){
     printMessage('Game over! Click on START');
     round = 0;
