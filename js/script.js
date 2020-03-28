@@ -12,7 +12,7 @@ const score_td = document.getElementById('score');
 const rock_button = document.getElementById('play-rock');
 const paper_button = document.getElementById('play-paper');
 const scissors_button = document.getElementById('play-scissors');
-const roundNumber_div = document.getElementById('round-number');
+const roundReset_button = document.getElementById('reset-round');
 let round = 0;
 
 const playGame = function(playerInput){
@@ -47,13 +47,11 @@ const playGame = function(playerInput){
               computerMove == 'paper' && playerMove == 'scissors' ||
               computerMove == 'scissors' && playerMove == 'rock'){
       win();
-      
       roundNumber();
     } else if(computerMove == 'rock' && playerMove == 'scissors' ||
               computerMove == 'paper' && playerMove == 'rock' ||
               computerMove == 'scissors' && playerMove == 'paper'){
       lose();
-      
       roundNumber();
     } else{
       printMessage('Choose your move!');
@@ -110,8 +108,7 @@ function win(){
 
 function lose(){
   let computerPoint = 0;
-  let sum = 0;
-
+  
   if(round == 0){
     computerPoint++;
     ++score.computer;
@@ -133,15 +130,6 @@ function lose(){
   }
 }
 
-function resetWin(){
-  playerResult = 0;
-  playerResult_1_td.innerHTML = 0;
-}
-
-function resetLose(){
-  computerResult = 0;
-  computerResult_1_td.innerHTML = 0;
-}
 
 function roundNumber(){
   
@@ -160,3 +148,24 @@ function roundNumber(){
     roundNumber_div.innerHTML = round;
   } 
 }
+
+function reset(){
+ 
+  let playerPoint = 0;
+  score.player = 0;
+  playerRound_1_td.innerHTML, 
+  playerRound_2_td.innerHTML, 
+  playerRound_3_td.innerHTML = playerPoint;
+  score_td.innerHTML = '';
+
+  let computerPoint = 0;
+  score.computer = 0;
+  computerRound_1_td.innerHTML, 
+  computerRound_2_td.innerHTML,
+  computerRound_3_td.innerHTML = computerPoint;
+  score_td.innerHTML = '';
+}
+
+roundReset_button.addEventListener('click', function() {
+  reset();
+});
