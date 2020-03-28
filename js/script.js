@@ -1,10 +1,15 @@
+'use strict';
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
-let playerResult = 0;
-let computerResult = 0;
-const playerResult_span = document.getElementById('player-result');
-const computerResult_span = document.getElementById('computer-result');
+const playerRound_1_td = document.getElementById('r1p');
+const computerRound_1_td = document.getElementById('r1c');
+const playerRound_2_td = document.getElementById('r2p');
+const computerRound_2_td = document.getElementById('r2c');
+const playerRound_3_td = document.getElementById('r3p');
+const computerRound_3_td = document.getElementById('r3c');
+const playerScore_td = document.getElementById('score-player');
+const computerScore_td = document.getElementById('score-computer');
 const rock_button = document.getElementById('play-rock');
 const paper_button = document.getElementById('play-paper');
 const scissors_button = document.getElementById('play-scissors');
@@ -75,25 +80,53 @@ function main(){
 main();
 
 function win(){
-  playerResult++;
-  playerResult_span.innerHTML = playerResult;
-  printMessage('You won!');
+  let playerPoint = 0;
+
+  if(round == 0){
+    playerPoint++;
+    playerRound_1_td.innerHTML = playerPoint;
+  } else if(round == 1){
+    playerPoint++;
+    playerRound_2_td.innerHTML = playerPoint;
+  } else if(round == 2){
+    playerPoint++;
+    playerRound_3_td.innerHTML = playerPoint;
+     
+    playerScore_td.innerHTML = 'test';
+  } else if(round == 3){
+    //printMessage('Game over! Click on START');
+    //resetWin();
+    //resetLose();
+  }
 }
 
 function lose(){
-  computerResult++;
-  computerResult_span.innerHTML = computerResult;
-  printMessage('You lost!');
+  let computerPoint = 0;
+  
+  if(round == 0){
+    computerPoint++;
+    computerRound_1_td.innerHTML = computerPoint;
+  } else if(round == 1){
+    computerPoint++;
+    computerRound_2_td.innerHTML = computerPoint;
+  } else if(round == 2){
+    computerPoint++;
+    computerRound_3_td.innerHTML = computerPoint;
+    computerScore_td.innerHTML = 'test';
+  } else if(round == 3){
+    
+    
+  }
 }
 
 function resetWin(){
   playerResult = 0;
-  playerResult_span.innerHTML = 0;
+  playerResult_1_td.innerHTML = 0;
 }
 
 function resetLose(){
   computerResult = 0;
-  computerResult_span.innerHTML = 0;
+  computerResult_1_td.innerHTML = 0;
 }
 
 function roundNumber(){
