@@ -153,15 +153,15 @@ function reset(){
  
   let playerPoint = 0;
   score.player = 0;
-  playerRound_1_td.innerHTML, 
-  playerRound_2_td.innerHTML, 
+  playerRound_1_td.innerHTML = playerPoint;
+  playerRound_2_td.innerHTML = playerPoint,
   playerRound_3_td.innerHTML = playerPoint;
   score_td.innerHTML = '';
 
   let computerPoint = 0;
   score.computer = 0;
-  computerRound_1_td.innerHTML, 
-  computerRound_2_td.innerHTML,
+  computerRound_1_td.innerHTML = computerPoint;
+  computerRound_2_td.innerHTML = computerPoint;
   computerRound_3_td.innerHTML = computerPoint;
   score_td.innerHTML = '';
 }
