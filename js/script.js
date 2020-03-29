@@ -37,11 +37,12 @@ const playGame = function(playerInput){
 
   const playerMove = getMoveName(playerInput);
 
-  printMessage('I played ' + computerMove + ' and you played ' + playerMove + '.');
+  //printMessage('I played ' + computerMove + ' and you played ' + playerMove + '.');
 
   const displayResult = function(computerMove, playerMove){
     if(computerMove == playerMove){
-      printMessage('Tie!');
+      
+      win();
       roundNumber();
     } else if(computerMove == 'rock' && playerMove == 'paper' ||
               computerMove == 'paper' && playerMove == 'scissors' ||
@@ -99,7 +100,7 @@ function win(){
     ++score.player;
     playerRound_3_td.innerHTML = playerPoint;
     score_td.innerHTML = score.player + ':' + score.computer;
-  } else if(round >= 3){
+  } else if(round == 3){
     clearMessages();
     printMessage('Game over! Click on START');
     
@@ -122,11 +123,6 @@ function lose(){
     ++score.computer;
     computerRound_3_td.innerHTML = computerPoint;
     score_td.innerHTML = score.player + ':' + score.computer;
-  } else if(round >= 3){
-    clearMessages();
-    printMessage('Game over! Click on START');
-    
-    
   }
 }
 
@@ -135,24 +131,17 @@ function roundNumber(){
   
   if (round < 3){
     round++;
-    //roundNumber_div.innerHTML = round;
-  } else if (round == 3){
-    //printMessage('Game over! Click on START');
-    //round = 0;
-    //resetWin();
-    //resetLose();
   } else {
-    computerResult++;
-    playerResult++;
-    round++;
-    roundNumber_div.innerHTML = round;
-  } 
+    clearMessages();
+    printMessage('Game over! Click on START');
+  }
 }
 
 function reset(){
  
   let playerPoint = 0;
   score.player = 0;
+  round = 0;
   playerRound_1_td.innerHTML = playerPoint;
   playerRound_2_td.innerHTML = playerPoint,
   playerRound_3_td.innerHTML = playerPoint;
@@ -164,6 +153,7 @@ function reset(){
   computerRound_2_td.innerHTML = computerPoint;
   computerRound_3_td.innerHTML = computerPoint;
   score_td.innerHTML = '';
+  clearMessages();
 }
 
 roundReset_button.addEventListener('click', function() {
